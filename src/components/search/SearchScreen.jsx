@@ -24,7 +24,7 @@ const SearchScreen = ({history}) => {
     <div>
       <h2 className='title'>Search Screen</h2>
       <hr/>
-      <div className="search">
+      <div className="search animate__animated animate__fadeIn">
         <form className='form' onSubmit={handleSubmit}>
           <input 
           className='input' 

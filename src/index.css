@@ -179,3 +179,24 @@ body {
   color: #fff;
   background-color: #bb2727;
 }
+.parrafo{
+  color: royalblue;
+  margin-right: 25px;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.Button-link{
+  outline: none;
+  padding: 0.7em;
+  border-radius: 5px;
+  color: #Fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 1px solid royalblue;
+  background-color: #333;
+  cursor: pointer;
+}
+.Button-link:hover{
+  background-color: #fff;
+  color:royalblue;
+}
