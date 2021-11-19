@@ -4,6 +4,7 @@ import { types } from '../../types/types';
 
 const LoginScreen = ({ history }) => {
 	const {dispatch} = useContext(AuthContext);
+	
   const handleClick = () => {
 		const lastPath = localStorage.getItem('LastPath') || '/'
     dispatch({

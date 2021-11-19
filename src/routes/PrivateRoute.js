@@ -14,9 +14,7 @@ export const PrivateRoute = ({isAuthenticated,component:Componenet,...rest}) => 
         :(<Redirect to='/login'/>)
       ))
     }
-    
     />
-
   )
 }
 PrivateRoute.propType ={
