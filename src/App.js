@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { AuthContext } from './auth/AuthContext';
 import { authReducer } from './auth/authReducer';
 import AppRouter from './routes/AppRouter';

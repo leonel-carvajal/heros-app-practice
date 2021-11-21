@@ -1,5 +1,4 @@
-import React from 'react';
-import { Redirect, Route, Switch } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
 import { Navbar } from '../components/Ui/NavBar';
 import MarvelScreen from '../components/marvel/MarvelScreen';
 import HeroesScreen from '../components/heroes/HeroesScreen';
@@ -10,15 +9,12 @@ const DashBoardRoutes = () => {
 	return (
 		<>
 			<Navbar/>
-			<div>
-				<Switch>
-					<Route exact path='/marvel' component={MarvelScreen} />
-					<Route exact path='/hero/:heroId' component={HeroesScreen} />
-					<Route exact path='/dc' component={DcScreen} />
-					<Route exact path='/search' component={SearchScreen}/>
-					<Redirect to='/marvel' />
-				</Switch>
-			</div>
+				<Routes>
+					<Route path='marvel' element={<MarvelScreen/>}/>
+					<Route path='hero/:heroId' element={<HeroesScreen/>}/>
+					<Route path='dc' element={<DcScreen/>}/>
+					<Route path='search' element={<SearchScreen/>}/>
+				</Routes>
 		</>
 	);
 };

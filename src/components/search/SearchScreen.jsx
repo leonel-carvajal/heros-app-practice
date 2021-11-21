@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
 import HeroCard from '../heroes/HeroCard';
@@ -13,7 +13,6 @@ const SearchScreen = ({history}) => {
     searchText:q
   })
   const {searchText} = formValues;
-  //const heroes = useMemo(() => getHeroesByPublisher(publisher),[publisher])
   const herosFiltered = useMemo(()=>getHeroesByname(searchText),[searchText])
   const handleSubmit = (e)=>{
       e.preventDefault()

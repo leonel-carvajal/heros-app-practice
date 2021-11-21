@@ -1,32 +1,51 @@
-import {useContext} from 'react';
-import {NavLink,Link, useHistory } from 'react-router-dom';
+import { useContext } from 'react';
+import { NavLink,useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../auth/AuthContext';
 import { types } from '../../types/types';
 
 export const Navbar = () => {
-	const {user,dispatch} = useContext(AuthContext);
-	const history = useHistory();
-	
-	const handleLogout = ()=>{
-		history.replace('/login')
-		dispatch({
-			type:types.logout
-    });
+let navigate = useNavigate();
+	const { user, dispatch } = useContext(AuthContext);
 
-	}
+	const handleLogout = () => {
+		navigate('/login',{
+			replace: true
+		});
+	};
 	return (
 		<nav className='Navbar'>
 			<ul className='Navbar-menu'>
 				<div className='div'>
-					<Link to='/asociaciones' className='Navbar-link'>Asociaciones</Link>
-					<NavLink exact to='/marvel' activeClassName='active' className='Navbar-link'>Marvel</NavLink>
-					<NavLink exact to='/dc' activeClassName='active' className='Navbar-link'>Dc</NavLink>
-					<NavLink exact to='/search' activeClassName='active' className='Navbar-link'>Search</NavLink>
+					<p  
+					className='Navbar-link'
+					>
+						Asociaciones
+					</p>
+					<NavLink
+						to='/marvel'
+						className={({isActive}) => isActive ? 'Navbar-link active' : 'Navbar-link'}
+					>
+						Marvel
+					</NavLink>
+					<NavLink
+						to='/dc'
+						className={({isActive}) => isActive ? 'Navbar-link active' : 'Navbar-link'}
+					>
+						Dc
+					</NavLink>
+					<NavLink
+						to='/search'
+						className={({isActive}) => isActive ? 'Navbar-link active' : 'Navbar-link'}
+					>
+						Search
+					</NavLink>
 				</div>
-			<div className='div'>
-				<p className='parrafo'>{user.name}</p>
-				<button  className='Button-link' onClick={handleLogout}>Logout</button>
-			</div>
+				<div className='div'>
+					<p className='parrafo'>{user.name}</p>
+					<button className='Button-link' onClick={handleLogout}>
+						Logout
+					</button>
+				</div>
 			</ul>
 		</nav>
 	);

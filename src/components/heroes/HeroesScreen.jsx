@@ -1,30 +1,26 @@
-import React, { useMemo } from 'react'
-import { Redirect, useParams} from 'react-router-dom'
+import { useMemo } from 'react'
+import {useParams,Navigate,useNavigate} from 'react-router-dom'
 import { getHeroesById } from '../selectors/getHeroesById';
 
-
-//const imagesHeros = require.context('../../assets/heroes',true);
-const HeroesScreen = ({history}) => {
-  const {heroId} = useParams();
+const HeroesScreen = () => {
+  const navigate = useNavigate();
+  const {heroId ,} = useParams();
   const hero = useMemo(()=>getHeroesById(heroId),[heroId])
-  //const hero = getHeroesById(heroId)
+
   if(!hero){
-    return <Redirect to='/'/>
-  }
-  const {id,superhero,publisher,alter_ego,first_appearance,characters} = hero
+    return <Navigate to="/dc"/>
+  } 
+
+  const {id,superhero,publisher,alter_ego,first_appearance,characters} = hero;
+
   const handleReturn =()=>{
-    if(history.length<=2){
-      history.push('/')
-    }else{
-      history.goBack()
-    }
+    navigate(-1)
   }
   return (
     <>
     <div className='card-individual '>
     <img 
-    //src={imagesHeros(`./dc-superman.jpg`)}
-    src={`./assets/heroes/${id}.jpg`} 
+    src={`/assets/heroes/${id}.jpg`} 
     alt={superhero}  
     className='card-img-i animate__animated animate__fadeInLeft' />
     <div className="card-body-i">
